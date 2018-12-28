@@ -10,9 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var YourName: UITextField!
+    
+    @IBOutlet weak var Feedback: UITableView!
+    
+    let todoList = List()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        Feedback.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        Feedback.dataSource = todoList
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +29,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func Button(_ sender: UIButton) {
+        guard let todo = YourName.text else {
+            return
+        }
+        todoList.add(todo)
+        Feedback.reloadData()
+        }
+    }
+    
 
-}
 
