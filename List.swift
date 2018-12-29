@@ -25,7 +25,7 @@ extension List: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     var item = items[indexPath.row]
-            item += ", the great!"
+            item += ", Bazinga!"
         
         cell.textLabel!.text = item
         
